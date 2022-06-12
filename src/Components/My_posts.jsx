@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useDebugValue } from "react";
 import "../App.css";
 
 const MyPosts = (props) => {
-  debugger;
   const Post = (props) => {
+    debugger;
     return (
       <div className="item">
         {props.message}
