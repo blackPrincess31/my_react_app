@@ -1,9 +1,10 @@
-import React, { useDebugValue } from "react";
+import React from "react";
 import "../App.css";
+import { addPostActionCreator } from "../Redux/ProfileReducer";
+import { updateNewPostActionCreator } from "../Redux/ProfileReducer";
 
 const MyPosts = (props) => {
   const Post = (props) => {
-    debugger;
     return (
       <div className="item">
         {props.message}
@@ -21,28 +22,30 @@ const MyPosts = (props) => {
   let newPostElement = React.createRef();
 
   let addPost = () => {
-    let text = newPostElement.current.value;
-    props.addPost(text);
-    props.updateNewPost("");
+    // let text = newPostElement.current.value;
+    props.dispatch(addPostActionCreator);
   };
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.updateNewPost(text);
+    // let action = {
+    //   type: "UPDATE-NEW-POST-TEXT",
+    //   newText: text,
+    // };
+    let action = updateNewPostActionCreator(text);
+    props.dispatch(action);
   };
 
   return (
     <div>
       <h3> My posts</h3>
       <div>
-        <textarea ref={newPostElement}></textarea>
-        <button
-          onClick={addPost}
+        <textarea
           onChange={onPostChange}
+          ref={newPostElement}
           value={props.newPostText}
-        >
-          Add post
-        </button>
+        />
+        <button onClick={addPost}>Add post</button>
       </div>
       {postselements}
     </div>

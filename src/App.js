@@ -19,10 +19,8 @@ const App = (props) => {
             activeClassName="active"
             element={
               <Profile
-                postData={props.state.profilePage.posts}
-                addPost={props.addPost}
-                newPostText={props.state.profilePage.newPostText}
-                updateNewPost={props.updateNewPost}
+                profilePage={props.state.profilePage}
+                dispatch={props.dispatch}
               />
             }
           />
@@ -30,12 +28,7 @@ const App = (props) => {
             exact
             path="/dialogs"
             activeClassName="active"
-            element={
-              <Dialogs
-                dialogsData={props.state.messagesPage.dialogs}
-                messagesData={props.state.messagesPage.messages}
-              />
-            }
+            element={<Dialogs store={props.store} />}
           />
         </Routes>
       </div>
