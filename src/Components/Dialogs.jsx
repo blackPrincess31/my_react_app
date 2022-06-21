@@ -31,7 +31,7 @@ const Dialogs = (props) => {
     <Message message={m.message} />
   ));
 
-  let newwMessageseBody = state.newwMessageseBody;
+  let newwMessageseBody = state.newMessageBody;
 
   let onSendMessageClick = () => {
     props.store.dispatch(sendMessageCreator());
@@ -45,7 +45,7 @@ const Dialogs = (props) => {
   return (
     <div className="contentDiologov">
       <div className="dialogs">
-        <div className="dialog" activeClassName="active">
+        <div className="dialog" activeclassname="active">
           {dialogselements}
         </div>
       </div>

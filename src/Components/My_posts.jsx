@@ -23,7 +23,8 @@ const MyPosts = (props) => {
 
   let addPost = () => {
     // let text = newPostElement.current.value;
-    props.dispatch(addPostActionCreator);
+    props.dispatch(addPostActionCreator());
+    console.log("click");
   };
 
   let onPostChange = () => {
@@ -45,8 +46,11 @@ const MyPosts = (props) => {
           ref={newPostElement}
           value={props.newPostText}
         />
+      </div>
+      <div>
         <button onClick={addPost}>Add post</button>
       </div>
+
       {postselements}
     </div>
   );

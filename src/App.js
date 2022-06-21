@@ -16,7 +16,7 @@ const App = (props) => {
           <Route
             exact
             path="/profile"
-            activeClassName="active"
+            activeclassname="active"
             element={
               <Profile
                 profilePage={props.state.profilePage}
@@ -27,7 +27,7 @@ const App = (props) => {
           <Route
             exact
             path="/dialogs"
-            activeClassName="active"
+            activeclassname="active"
             element={<Dialogs store={props.store} />}
           />
         </Routes>
